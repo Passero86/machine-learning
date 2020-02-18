@@ -85,15 +85,15 @@ ROC全称是“受试者工作特征”（Receiver Operating Characteristic）�
 AUC计算示例：
 1. 按ROC下方面积计算，参见[如何理解机器学习和统计中的AUC？](https://www.zhihu.com/question/39840928)<br>
 - 对于硬分类器（例如SVM，NB），预测类别为离散标签，对于8个样本的预测情况如下：<br>
-  ![预测结果](https://pic1.zhimg.com/80/v2-e3f86b478cb9682be32b0f07467b2ab0_hd.jpg)
+  ![预测结果](https://pic1.zhimg.com/80/v2-e3f86b478cb9682be32b0f07467b2ab0_hd.jpg)<br>
   得到混淆矩阵如下：<br>
   ![预测结果](https://pic3.zhimg.com/80/v2-56ab226ecbcc0662f59a1142a99b1a47_hd.jpg)<br>
   进而算得TPR=3/4，FPR=2/4，得到ROC曲线：<br>
   ![预测结果](https://pic3.zhimg.com/80/v2-383b1279e560ca96c85204ccaf564037_hd.jpg)<br>
-  最终得到AUC为0.625。
-- 对于LR等预测类别为概率的分类器，依然用上述例子，假设预测结果如下：
-  ![预测结果](https://pic3.zhimg.com/80/v2-d4865f1e8d675f21cbbe656eb546547d_hd.jpg)
-  这时，需要设置阈值来得到混淆矩阵，不同的阈值会影响得到的TPR，FPR，如果阈值取0.5，小于0.5的为0，否则为1，那么我们就得到了与之前一样的混淆矩阵。其他的阈值就不再啰嗦了。依次使用所有预测值作为阈值，得到一系列TPR，FPR，描点，求面积，即可得到AUC。
+  最终得到AUC为0.625。<br>
+- 对于LR等预测类别为概率的分类器，依然用上述例子，假设预测结果如下：<br>
+  ![预测结果](https://pic3.zhimg.com/80/v2-d4865f1e8d675f21cbbe656eb546547d_hd.jpg)<br>
+  这时，需要设置阈值来得到混淆矩阵，不同的阈值会影响得到的TPR，FPR，如果阈值取0.5，小于0.5的为0，否则为1，那么我们就得到了与之前一样的混淆矩阵。其他的阈值就不再啰嗦了。依次使用所有预测值作为阈值，得到一系列TPR，FPR，描点，求面积，即可得到AUC。<br>
 
 2. 对于AUC的计算，除了直接计算ROC曲线下方的面积外，还可以使用下述两种方法进行计算，参见[AUC的计算方法](https://blog.csdn.net/qq_22238533/article/details/78666436)<br>
 - 在有$M$个正样本，$N$个负样本的数据集中，统计这$M \times N$对样本里，正样本的预测概率大于负样本的预测概率的个数。
